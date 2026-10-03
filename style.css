@@ -1,0 +1,407 @@
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:#172b44}body{overflow:hidden;background:radial-gradient(circle at 50% 10%,#6f89a2 0,#244d73 34%,#0c3155 72%,#061c32 100%)}
+.stage{height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px 58px 14px;position:relative}.ambient{position:absolute;inset:0;background:linear-gradient(115deg,transparent 20%,rgba(246,201,72,.08),transparent 65%);pointer-events:none}.book-wrap{width:min(1200px,88vw);height:min(760px,82vh);position:relative;perspective:3200px}.book{position:absolute;inset:0;transform-style:preserve-3d;filter:drop-shadow(0 30px 38px rgba(0,0,0,.5))}
+.album-shell{position:absolute;inset:0;background:linear-gradient(135deg,#0a4778 0,#062f58 48%,#041f3d 100%);border:5px solid #d9ad39;box-shadow:inset 0 0 0 3px #092d50,inset 0 0 0 5px rgba(255,222,111,.38),inset 0 0 50px rgba(0,0,0,.35);border-radius:4px}.album-shell:before{content:"";position:absolute;inset:12px;background-image:repeating-linear-gradient(35deg,rgba(255,255,255,.018) 0 2px,rgba(0,0,0,.025) 2px 5px);pointer-events:none}.stitch{position:absolute;z-index:2;inset:17px;border:1px dashed rgba(248,211,100,.62);pointer-events:none}.stitch2{inset:25px;border-color:rgba(248,211,100,.22)}.metal{position:absolute;width:54px;height:54px;z-index:5;background:linear-gradient(135deg,#f4dc8a,#aa7617 46%,#f7df8a 72%,#875b10);box-shadow:inset 0 0 0 2px rgba(92,56,4,.35),0 2px 5px rgba(0,0,0,.3)}.metal:after{content:"✦";position:absolute;color:#6e480c;font-size:16px;opacity:.65}.metal.tl{left:0;top:0;clip-path:polygon(0 0,100% 0,0 100%)}.metal.tl:after{left:9px;top:7px}.metal.tr{right:0;top:0;clip-path:polygon(0 0,100% 0,100% 100%)}.metal.tr:after{right:9px;top:7px}.metal.bl{left:0;bottom:0;clip-path:polygon(0 0,0 100%,100% 100%)}.metal.bl:after{left:9px;bottom:7px}.metal.br{right:0;bottom:0;clip-path:polygon(100% 0,0 100%,100% 100%)}.metal.br:after{right:9px;bottom:7px}
+.spread{position:absolute;inset:3.8% 3.1%;z-index:20;transform-style:preserve-3d}.paper{position:absolute;top:0;width:49.55%;height:100%;overflow:hidden;background:#f7f0df;background-image:radial-gradient(rgba(93,67,37,.075) .7px,transparent .7px);background-size:7px 7px;border:1px solid #d7c6a5}.left-page{left:0;box-shadow:inset -25px 0 35px rgba(70,43,20,.13),0 4px 12px rgba(0,0,0,.17)}.right-page{right:0;box-shadow:inset 25px 0 35px rgba(70,43,20,.13),0 4px 12px rgba(0,0,0,.17)}.spine{position:absolute;left:49.55%;top:0;width:.9%;height:100%;z-index:40;background:linear-gradient(90deg,rgba(45,25,10,.34),rgba(255,255,255,.25),rgba(45,25,10,.34));box-shadow:0 0 16px rgba(0,0,0,.3);pointer-events:none}
+.turner{position:absolute;right:0;top:0;width:49.55%;height:100%;z-index:80;transform-origin:left center;transform-style:preserve-3d;display:none}.turner.forward{display:block;animation:turnForward 1.05s cubic-bezier(.35,.02,.18,1) forwards}.turner.backward{display:block;left:0;right:auto;transform-origin:right center;animation:turnBackward 1.05s cubic-bezier(.35,.02,.18,1) forwards}.turn-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:#f7f0df;background-image:radial-gradient(rgba(93,67,37,.075) .7px,transparent .7px);background-size:7px 7px;border:1px solid #d7c6a5}.turn-front{transform:rotateY(0deg);box-shadow:-10px 0 25px rgba(0,0,0,.2)}.turn-back{transform:rotateY(180deg);box-shadow:10px 0 25px rgba(0,0,0,.2)}@keyframes turnForward{0%{transform:rotateY(0)}100%{transform:rotateY(-180deg)}}@keyframes turnBackward{0%{transform:rotateY(0)}100%{transform:rotateY(180deg)}}
+.cover-overlay{position:absolute;inset:0;z-index:150;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.3,.03,.16,1),opacity .18s 1s;cursor:pointer}.cover-overlay.opened{transform:rotateY(-180deg);opacity:0;pointer-events:none}.cover-panel{position:absolute;inset:0;backface-visibility:hidden;background:linear-gradient(145deg,#0b4c80,#062f5b 58%,#062746);border:5px solid #ddb13a;box-shadow:inset 0 0 0 3px #0b355c,inset 0 0 0 6px rgba(255,218,94,.30),inset 0 0 65px rgba(0,0,0,.28);border-radius:4px}.cover-panel:before{content:"";position:absolute;inset:18px;border:1px dashed rgba(255,219,105,.62)}.cover-panel:after{content:"";position:absolute;inset:28px;border:1px solid rgba(255,219,105,.22)}.cover-content{height:100%;padding:45px 50px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:white;position:relative;overflow:visible}.cover-content .seal{font:700 13px/1.5 Arial,sans-serif;letter-spacing:2.6px;color:#f5cf55;margin-bottom:12px}.cover-content .chapter-label{font:500 18px/1.3 Georgia,serif;letter-spacing:7px;color:#fff;margin-bottom:5px}.theme-wrap{width:100%;padding:10px 30px 16px;overflow:visible}.theme-text{font-family:'Snell Roundhand','Apple Chancery','URW Chancery L','Brush Script MT',cursive;font-size:clamp(66px,7.7vw,112px);font-weight:700;line-height:1.05;letter-spacing:-3px;margin:0 auto;background:linear-gradient(100deg,#ef0063 5%,#b21474 35%,#4a2f87 62%,#00509a 92%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(255,255,255,.18));white-space:nowrap;display:inline-block;padding:0 16px 10px}.cover-content h2{font-size:19px;font-weight:normal;letter-spacing:4px;margin:0 0 10px}.cover-content p{font-size:16px;letter-spacing:1px;color:#f5ead0}.cover-content .year{margin-top:12px;font:700 13px Arial,sans-serif;letter-spacing:4px;color:#f5cf55}.open-btn{margin-top:22px;border:1px solid #f2cc5b;background:linear-gradient(#edc85c,#c9931f);padding:12px 27px;font:700 14px Georgia,serif;letter-spacing:1.5px;color:#18314d;box-shadow:0 4px 10px rgba(0,0,0,.25);cursor:pointer}
+.page{height:100%;padding:28px 28px 22px;position:relative}.chapter{font-family:'Snell Roundhand','Apple Chancery','URW Chancery L','Brush Script MT',cursive;font-size:35px;font-weight:700;color:#0b4b7f;margin:0 0 4px;line-height:1}.prompt{font-size:14px;line-height:1.35;margin:0 0 9px;color:#594c3f}.patwa{font:italic 16px Georgia,serif;color:#a12c64;margin:3px 0 9px}.gold-rule{width:76px;height:3px;background:#ddb12f;margin:7px 0 11px}.collage{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:9px;height:68%}.collage img{width:100%;height:100%;object-fit:contain;background:white;padding:5px;box-shadow:0 5px 11px rgba(47,36,24,.24);border:1px solid #dfd2b8;cursor:zoom-in}.collage img:first-child{grid-row:1/3;transform:rotate(-1.1deg)}.collage img:nth-child(2){transform:rotate(1.4deg)}.collage img:nth-child(3){transform:rotate(-.7deg)}.collage.six{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);height:72%}.collage.six img:first-child{grid-row:auto}.corner-note{position:absolute;right:25px;bottom:10px;font:italic 13px Georgia,serif;color:#8b6b25}.tiny-flag{display:inline-flex;gap:3px;margin-left:7px}.tiny-flag i{display:block;width:12px;height:5px}.tiny-flag i:nth-child(1){background:#169447}.tiny-flag i:nth-child(2){background:#f4c82d}.tiny-flag i:nth-child(3){background:#111}
+.gallery-page{padding:22px 22px 18px}.gallery-page .chapter{font-size:29px}.gallery-page .prompt{font-size:12px;margin-bottom:8px}.gallery-grid{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(4,1fr);gap:6px;height:78%}.gallery-grid img{width:100%;height:100%;object-fit:contain;background:#fff;padding:3px;border:1px solid #ded0b4;box-shadow:0 2px 5px rgba(0,0,0,.18);cursor:zoom-in}.gallery-grid img:nth-child(3n){transform:rotate(.45deg)}.gallery-grid img:nth-child(4n){transform:rotate(-.45deg)}
+.nav{position:absolute;top:48%;width:46px;height:62px;border:1px solid rgba(245,207,85,.5);background:rgba(5,27,50,.88);color:#f7d35b;font-size:42px;cursor:pointer;z-index:190;box-shadow:0 6px 15px rgba(0,0,0,.28);transition:opacity .25s}.nav.prev{left:-58px}.nav.next{right:-58px}.nav:disabled{opacity:.25;cursor:default}.hidden{opacity:0!important;pointer-events:none!important}.underbar{width:min(1080px,84vw);display:flex;align-items:center;justify-content:space-between;color:#dce8f3;font:12px Arial,sans-serif;letter-spacing:1px;margin-top:10px;transition:opacity .25s}.home-btn{border:1px solid rgba(245,207,85,.55);background:rgba(5,27,50,.75);color:#f5cf55;padding:8px 12px;font:700 11px Arial,sans-serif;letter-spacing:1px;cursor:pointer}.modal{position:fixed;inset:0;background:rgba(3,15,28,.9);z-index:300;display:none;align-items:center;justify-content:center;padding:40px}.modal.show{display:flex}.modal img{max-width:90vw;max-height:88vh;border:10px solid white;box-shadow:0 15px 45px #000}.modal button{position:absolute;right:24px;top:18px;border:0;background:none;color:white;font-size:44px;cursor:pointer}
+@media(max-width:800px){body{overflow:auto}.stage{min-height:100vh;height:auto;padding:18px 34px}.book-wrap{width:92vw;height:68vh;min-height:520px}.nav.prev{left:-36px}.nav.next{right:-36px}.page{padding:18px 14px}.chapter{font-size:25px}.prompt,.patwa{font-size:11px}.collage,.collage.six{gap:4px}.cover-content{padding:26px 12px}.theme-wrap{padding:8px 2px}.theme-text{font-size:clamp(39px,10vw,68px);white-space:normal;letter-spacing:-2px}.cover-content h2{font-size:13px}.underbar{font-size:9px}.hint{display:none}.gallery-grid{gap:3px}}
+
+/* V8 — looser, photo-first scrapbook layouts. Images keep their full natural frame. */
+.collage{
+  display:flex;height:68%;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;
+  padding:2px 0 0;overflow:visible;
+}
+.collage img{
+  width:auto;height:auto;max-width:47%;max-height:48%;object-fit:contain;
+  background:transparent;padding:0;border:6px solid #fffaf0;
+  box-shadow:0 6px 12px rgba(47,36,24,.28);cursor:zoom-in;
+}
+.collage img:first-child{grid-row:auto;transform:rotate(-2.2deg);max-width:52%;max-height:76%}
+.collage img:nth-child(2){transform:rotate(2.5deg)}
+.collage img:nth-child(3){transform:rotate(-1.5deg)}
+.collage.six{display:flex;height:70%;gap:5px;align-content:center;justify-content:center;overflow:visible}
+.collage.six img{width:auto;height:auto;max-width:31%;max-height:45%;border-width:5px;margin:-2px 0}
+.collage.six img:first-child{max-width:34%;max-height:47%;transform:rotate(-2deg)}
+.collage.six img:nth-child(2){transform:rotate(1.8deg)}
+.collage.six img:nth-child(3){transform:rotate(-1deg)}
+.collage.six img:nth-child(4){transform:rotate(2.2deg)}
+.collage.six img:nth-child(5){transform:rotate(-2.4deg)}
+.collage.six img:nth-child(6){transform:rotate(1.2deg)}
+
+.gallery-page{padding:18px 18px 15px}
+.gallery-page .chapter{font-size:27px;margin-bottom:2px}.gallery-page .gold-rule{margin:4px 0 6px}.gallery-page .prompt{font-size:11px;margin-bottom:5px}
+.gallery-grid{
+  display:block;columns:5;column-gap:6px;height:82%;overflow:hidden;padding:1px 2px;
+}
+.gallery-grid img{
+  display:block;width:100%;height:auto;object-fit:contain;background:transparent;padding:0;
+  border:4px solid #fffaf0;box-shadow:0 3px 7px rgba(0,0,0,.22);cursor:zoom-in;
+  margin:0 0 5px;break-inside:avoid;transform-origin:center;
+}
+.gallery-grid img:nth-child(5n+1){transform:rotate(-1.5deg);width:97%;margin-left:2%}
+.gallery-grid img:nth-child(5n+2){transform:rotate(.9deg);width:94%;margin-left:3%}
+.gallery-grid img:nth-child(5n+3){transform:rotate(-.6deg);width:98%}
+.gallery-grid img:nth-child(5n+4){transform:rotate(1.6deg);width:95%;margin-left:2%}
+.gallery-grid img:nth-child(5n){transform:rotate(-1deg);width:96%;margin-left:1%}
+@media(max-width:800px){.gallery-grid{columns:4;column-gap:3px}.gallery-grid img{border-width:2px;margin-bottom:3px}.collage img{border-width:3px}.collage.six img{border-width:3px}}
+
+/* V9 — fuller scrapbook pages, larger memories, reliable corner turns */
+.collage{height:72%;display:grid!important;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);gap:5px;align-items:stretch;overflow:visible;padding:0}
+.collage img{width:100%;height:100%;max-width:none!important;max-height:none!important;object-fit:contain;background:transparent;padding:0;border:4px solid #fffaf0;margin:0;box-shadow:0 5px 10px rgba(47,36,24,.26)}
+.collage.five img:nth-child(1){grid-column:1/4;grid-row:1/4;transform:rotate(-1.4deg)}
+.collage.five img:nth-child(2){grid-column:4/7;grid-row:1/3;transform:rotate(1.5deg)}
+.collage.five img:nth-child(3){grid-column:4/7;grid-row:3/5;transform:rotate(-.8deg)}
+.collage.five img:nth-child(4){grid-column:1/4;grid-row:4/7;transform:rotate(1deg)}
+.collage.five img:nth-child(5){grid-column:4/7;grid-row:5/7;transform:rotate(-1.3deg)}
+.collage.six img:nth-child(1){grid-column:1/4;grid-row:1/3;transform:rotate(-1deg)}
+.collage.six img:nth-child(2){grid-column:4/7;grid-row:1/3;transform:rotate(1.2deg)}
+.collage.six img:nth-child(3){grid-column:1/3;grid-row:3/5;transform:rotate(1.1deg)}
+.collage.six img:nth-child(4){grid-column:3/7;grid-row:3/5;transform:rotate(-.8deg)}
+.collage.six img:nth-child(5){grid-column:1/4;grid-row:5/7;transform:rotate(-1.1deg)}
+.collage.six img:nth-child(6){grid-column:4/7;grid-row:5/7;transform:rotate(.9deg)}
+.gallery-grid{height:84%;display:grid!important;columns:auto;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:4px;overflow:hidden;padding:0}
+.gallery-grid img,.gallery-grid img:nth-child(n){display:block;width:100%!important;height:100%!important;object-fit:contain;background:transparent;padding:0;border:3px solid #fffaf0;box-shadow:0 2px 5px rgba(0,0,0,.2);margin:0!important;transform:none!important}
+.gallery-grid img:nth-child(4n+1){transform:rotate(-.5deg)!important}.gallery-grid img:nth-child(4n+2){transform:rotate(.45deg)!important}.gallery-grid img:nth-child(4n+3){transform:rotate(.25deg)!important}.gallery-grid img:nth-child(4n){transform:rotate(-.35deg)!important}
+.page-corner{position:absolute;z-index:120;bottom:0;width:64px;height:64px;border:0;background:linear-gradient(135deg,transparent 49%,rgba(11,75,127,.18) 50%,rgba(221,177,47,.78) 100%);color:#173b5f;font:700 25px Georgia,serif;cursor:pointer;opacity:.78;transition:opacity .2s,transform .2s}
+.page-corner:hover{opacity:1;transform:scale(1.05)}.page-corner:disabled{opacity:.16;cursor:default;transform:none}.prev-corner{left:0;transform-origin:bottom left}.next-corner{right:0;transform:scaleX(-1);transform-origin:bottom right}.next-corner:hover{transform:scaleX(-1) scale(1.05)}
+.music-btn{min-width:125px}.gallery-page .corner-note{bottom:5px}
+@media(max-width:800px){.collage{gap:3px}.collage img{border-width:2px}.gallery-grid{gap:2px}.gallery-grid img{border-width:2px}.page-corner{width:48px;height:48px}}
+
+
+/* V10 — organic, edge-to-edge scrapbook photo placement without image cropping */
+.collage{height:73%;display:flex!important;flex-wrap:wrap;align-content:space-between;justify-content:space-between;gap:0!important;padding:0 1px;overflow:visible;position:relative}
+.collage img{display:block!important;object-fit:contain!important;background:transparent!important;padding:0!important;margin:0!important;height:auto!important;max-height:34%!important;width:auto!important;max-width:49%!important;border:3px solid #fffaf0!important;box-shadow:0 5px 10px rgba(47,36,24,.25)}
+.collage img:nth-child(1){width:48%!important;transform:rotate(-1.8deg)}
+.collage img:nth-child(2){width:48%!important;transform:rotate(1.4deg)}
+.collage img:nth-child(3){width:45%!important;transform:rotate(1.1deg)}
+.collage img:nth-child(4){width:52%!important;transform:rotate(-1.2deg)}
+.collage img:nth-child(5){width:48%!important;transform:rotate(-.8deg)}
+.collage img:nth-child(6){width:48%!important;transform:rotate(1.5deg)}
+.collage.five img:nth-child(3){width:55%!important}.collage.five img:nth-child(4){width:42%!important}
+
+.gallery-grid{height:84%;display:flex!important;flex-wrap:wrap;align-content:space-between;justify-content:space-between;gap:0!important;overflow:visible!important;padding:0 1px}
+.gallery-grid img,.gallery-grid img:nth-child(n){display:block!important;object-fit:contain!important;background:transparent!important;padding:0!important;margin:0!important;height:auto!important;max-height:19.2%!important;width:auto!important;max-width:49.5%!important;border:2px solid #fffaf0!important;box-shadow:0 3px 7px rgba(0,0,0,.2)}
+.gallery-grid img:nth-child(odd){width:49%!important;transform:rotate(-.7deg)!important}.gallery-grid img:nth-child(even){width:49%!important;transform:rotate(.65deg)!important}
+.gallery-grid img:nth-child(5n+3){width:47%!important;transform:rotate(1.1deg)!important}.gallery-grid img:nth-child(5n+4){width:51%!important;transform:rotate(-1deg)!important}
+@media(max-width:800px){.collage img{border-width:2px!important}.gallery-grid img{border-width:1px!important}}
+
+/* V11 — restore the approved V8 photo-first spacing and make page corners invisible hit areas. */
+.page-corner{
+  width:92px!important;height:92px!important;background:transparent!important;border:0!important;
+  color:transparent!important;opacity:1!important;box-shadow:none!important;transform:none!important;
+  cursor:pointer;z-index:130;
+}
+.page-corner:hover,.next-corner:hover{background:transparent!important;opacity:1!important;transform:none!important}
+.page-corner:disabled{opacity:0!important;cursor:default}
+
+/* Natural-size scrapbook photos: no artificial white box, no stretching, no cropping. */
+.collage,.collage.six,.collage.five{
+  display:flex!important;height:73%!important;gap:5px!important;align-content:center!important;
+  align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;
+  padding:0!important;overflow:visible!important;
+}
+.collage img,.collage.six img,.collage.five img{
+  display:block!important;width:auto!important;height:auto!important;object-fit:contain!important;
+  background:transparent!important;padding:0!important;margin:-2px 0!important;
+  max-width:47%!important;max-height:47%!important;border:3px solid #fffaf0!important;
+  box-shadow:0 6px 12px rgba(47,36,24,.28)!important;cursor:zoom-in;
+}
+.collage img:nth-child(1){transform:rotate(-2.1deg)!important;max-width:49%!important}
+.collage img:nth-child(2){transform:rotate(2.2deg)!important}
+.collage img:nth-child(3){transform:rotate(-1.4deg)!important}
+.collage img:nth-child(4){transform:rotate(1.6deg)!important}
+.collage img:nth-child(5){transform:rotate(-2deg)!important}
+.collage img:nth-child(6){transform:rotate(1.1deg)!important}
+.collage.six img{max-width:31.5%!important;max-height:46%!important}
+
+/* Full-memory pages: loose masonry, large natural photos, tight spacing, no empty final page. */
+.gallery-page{padding:18px 18px 15px!important}
+.gallery-page .chapter{font-size:27px}.gallery-page .gold-rule{margin:4px 0 6px}.gallery-page .prompt{font-size:11px;margin-bottom:5px}
+.gallery-grid{
+  display:block!important;columns:3!important;column-gap:4px!important;height:84%!important;
+  overflow:hidden!important;padding:0!important;
+}
+.gallery-grid img,.gallery-grid img:nth-child(n){
+  display:block!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;
+  object-fit:contain!important;background:transparent!important;padding:0!important;
+  border:2px solid #fffaf0!important;box-shadow:0 3px 7px rgba(0,0,0,.22)!important;
+  margin:0 0 4px!important;break-inside:avoid!important;transform-origin:center!important;
+}
+.gallery-grid img:nth-child(5n+1){transform:rotate(-1.2deg)!important;width:98%!important;margin-left:1%!important}
+.gallery-grid img:nth-child(5n+2){transform:rotate(.8deg)!important;width:97%!important;margin-left:2%!important}
+.gallery-grid img:nth-child(5n+3){transform:rotate(-.5deg)!important;width:99%!important}
+.gallery-grid img:nth-child(5n+4){transform:rotate(1.1deg)!important;width:98%!important;margin-left:1%!important}
+.gallery-grid img:nth-child(5n){transform:rotate(-.8deg)!important;width:98%!important}
+@media(max-width:800px){.page-corner{width:68px!important;height:68px!important}.gallery-grid{columns:3!important;column-gap:2px!important}.gallery-grid img{border-width:1px!important;margin-bottom:2px!important}.collage img{border-width:2px!important}}
+
+
+/* V12 — protected prompt zone + full-page, natural scrapbook photo field. */
+.page:not(.gallery-page){
+  display:flex!important;
+  flex-direction:column!important;
+  padding:28px 26px 20px!important;
+  overflow:hidden!important;
+}
+.page:not(.gallery-page) .chapter,
+.page:not(.gallery-page) .gold-rule,
+.page:not(.gallery-page) .prompt,
+.page:not(.gallery-page) .patwa{
+  position:relative!important;
+  z-index:12!important;
+  flex:0 0 auto!important;
+}
+.page:not(.gallery-page) .collage,
+.page:not(.gallery-page) .collage.five,
+.page:not(.gallery-page) .collage.six{
+  position:relative!important;
+  z-index:3!important;
+  flex:1 1 auto!important;
+  min-height:0!important;
+  height:auto!important;
+  margin-top:3px!important;
+  padding:2px 1px 13px!important;
+  display:flex!important;
+  flex-wrap:wrap!important;
+  justify-content:space-around!important;
+  align-content:space-around!important;
+  align-items:center!important;
+  gap:2px 4px!important;
+  overflow:hidden!important;
+}
+.page:not(.gallery-page) .collage img{
+  position:relative!important;
+  width:auto!important;
+  height:auto!important;
+  object-fit:contain!important;
+  background:transparent!important;
+  padding:0!important;
+  margin:-2px -1px!important;
+  max-width:48%!important;
+  max-height:48%!important;
+  border:3px solid #fffaf0!important;
+  box-sizing:border-box!important;
+}
+.page:not(.gallery-page) .collage.six img{max-width:32%!important;max-height:48%!important}
+.page:not(.gallery-page) .corner-note{z-index:14!important;background:rgba(247,240,223,.78);padding:1px 3px}
+@media(max-width:800px){
+ .page:not(.gallery-page){padding:18px 14px 14px!important}
+ .page:not(.gallery-page) .collage{padding-bottom:10px!important}
+ .page:not(.gallery-page) .collage img{border-width:2px!important}
+}
+
+
+/* V13 — no-clipping scrapbook placement and fuller memory pages */
+.page:not(.gallery-page) .collage,
+.page:not(.gallery-page) .collage.five,
+.page:not(.gallery-page) .collage.six{
+  overflow:visible!important;
+  padding:5px 5px 18px!important;
+  align-content:space-evenly!important;
+  justify-content:space-evenly!important;
+  gap:3px!important;
+}
+.page:not(.gallery-page) .collage img{
+  max-width:46%!important;
+  max-height:43%!important;
+  margin:0!important;
+  transform-origin:center center!important;
+}
+.page:not(.gallery-page) .collage.six img{
+  max-width:30.5%!important;
+  max-height:43%!important;
+}
+/* Keep the bottom row fully inside the paper even after scrapbook rotation. */
+.page:not(.gallery-page) .collage img:nth-last-child(-n+3){margin-bottom:8px!important}
+
+.gallery-page{
+  display:flex!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+  padding:18px 18px 17px!important;
+}
+.gallery-page .chapter,.gallery-page .gold-rule,.gallery-page .prompt,.gallery-page .patwa{
+  flex:0 0 auto!important;position:relative!important;z-index:12!important;
+}
+.gallery-page .prompt{font-size:12px!important;line-height:1.25!important;margin-bottom:2px!important}
+.gallery-page .patwa{font-size:13px!important;line-height:1.2!important;margin:2px 0 6px!important}
+.gallery-grid{
+  flex:1 1 auto!important;min-height:0!important;height:auto!important;
+  display:flex!important;columns:auto!important;column-gap:0!important;
+  flex-wrap:wrap!important;align-content:space-evenly!important;align-items:center!important;
+  justify-content:space-evenly!important;gap:2px 3px!important;overflow:visible!important;
+  padding:3px 3px 14px!important;
+}
+.gallery-grid img,.gallery-grid img:nth-child(n){
+  display:block!important;width:auto!important;height:auto!important;
+  max-width:31%!important;max-height:23%!important;object-fit:contain!important;
+  margin:0!important;background:transparent!important;padding:0!important;
+  border:2px solid #fffaf0!important;box-sizing:border-box!important;
+  break-inside:auto!important;
+}
+.gallery-grid img:nth-child(6n+1){transform:rotate(-1.2deg)!important}
+.gallery-grid img:nth-child(6n+2){transform:rotate(.9deg)!important}
+.gallery-grid img:nth-child(6n+3){transform:rotate(-.55deg)!important}
+.gallery-grid img:nth-child(6n+4){transform:rotate(1.15deg)!important}
+.gallery-grid img:nth-child(6n+5){transform:rotate(-.75deg)!important}
+.gallery-grid img:nth-child(6n){transform:rotate(.5deg)!important}
+.gallery-page .corner-note{display:none!important}
+@media(max-width:800px){
+ .page:not(.gallery-page) .collage img{max-width:45%!important;max-height:42%!important}
+ .page:not(.gallery-page) .collage.six img{max-width:30%!important;max-height:42%!important}
+ .gallery-grid img,.gallery-grid img:nth-child(n){max-width:31%!important;max-height:23%!important}
+}
+
+/* V14 — pages 1–8: protected scrapbook photo field; every complete photo stays inside the paper. */
+.page.story-safe .collage,
+.page.story-safe .collage.five,
+.page.story-safe .collage.six{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  width:100%!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  gap:5px 7px!important;
+  align-items:center!important;
+  justify-items:center!important;
+  align-content:stretch!important;
+  padding:8px 7px 18px!important;
+  margin:2px 0 0!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.page.story-safe .collage img,
+.page.story-safe .collage.six img,
+.page.story-safe .collage.five img{
+  display:block!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:94%!important;
+  max-height:94%!important;
+  min-width:0!important;
+  min-height:0!important;
+  object-fit:contain!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  transform-origin:center!important;
+}
+.page.story-safe .collage img:nth-child(1){transform:rotate(-.65deg)!important}
+.page.story-safe .collage img:nth-child(2){transform:rotate(.55deg)!important}
+.page.story-safe .collage img:nth-child(3){transform:rotate(.45deg)!important}
+.page.story-safe .collage img:nth-child(4){transform:rotate(-.55deg)!important}
+.page.story-safe .collage img:nth-child(5){transform:rotate(-.4deg)!important}
+.page.story-safe .collage img:nth-child(6){transform:rotate(.5deg)!important}
+/* Five-photo pages use the last row as a centered scrapbook moment rather than leaving a hole. */
+.page.story-safe .collage.five img:nth-child(5){grid-column:1 / 3!important;max-width:47%!important;max-height:94%!important}
+/* Six-photo pages keep two balanced columns so vertical and horizontal originals stay large. */
+.page.story-safe .collage.six{grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:repeat(3,minmax(0,1fr))!important}
+
+/* YouTube music player: visible embed required for streamed playback; kept clear of the album pages. */
+.youtube-music{position:fixed;right:16px;bottom:62px;width:200px;height:200px;z-index:250;opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s;box-shadow:0 8px 24px rgba(0,0,0,.28);background:#111;border:2px solid #ddb12f;border-radius:8px;overflow:hidden}
+.youtube-music.show{opacity:1;pointer-events:auto;transform:none}
+.youtube-music iframe{display:block;width:200px!important;height:200px!important;border:0}
+@media(max-width:800px){.youtube-music{right:8px;bottom:54px}}
+
+/* V15 — FINAL story-page containment fix. Pages 9–17 are intentionally untouched. */
+.page.story-safe{
+  display:flex!important;
+  flex-direction:column!important;
+  height:100%!important;
+  min-height:0!important;
+  overflow:hidden!important;
+  padding-bottom:34px!important;
+}
+.page.story-safe > .chapter,
+.page.story-safe > .gold-rule,
+.page.story-safe > .prompt,
+.page.story-safe > .patwa{
+  flex:0 0 auto!important;
+}
+.page.story-safe .collage,
+.page.story-safe .collage.five,
+.page.story-safe .collage.six{
+  flex:1 1 0!important;
+  height:0!important;
+  min-height:0!important;
+  max-height:none!important;
+  width:100%!important;
+  overflow:hidden!important;
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(3,minmax(0,1fr))!important;
+  gap:6px 8px!important;
+  padding:5px 8px 8px!important;
+  margin:0!important;
+  align-items:center!important;
+  justify-items:center!important;
+}
+.page.story-safe .collage img,
+.page.story-safe .collage.five img,
+.page.story-safe .collage.six img{
+  width:auto!important;
+  height:auto!important;
+  max-width:91%!important;
+  max-height:88%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+}
+.page.story-safe .collage.five img:nth-child(5){
+  grid-column:1 / 3!important;
+  max-width:46%!important;
+  max-height:88%!important;
+}
+/* The bottom row gets extra breathing room so rotated photo corners never cross the paper edge. */
+.page.story-safe .collage img:nth-child(5),
+.page.story-safe .collage img:nth-child(6){
+  transform:rotate(0deg)!important;
+  max-height:82%!important;
+}
+/* No YouTube overlay on top of the scrapbook. */
+.youtube-music{display:none!important}
+\n/* V16 — final requested story-page simplification + in-page YouTube playback. */
+.page.story-safe .collage.four{
+  flex:1 1 0!important;height:0!important;min-height:0!important;width:100%!important;
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:8px 10px!important;
+  padding:7px 8px 9px!important;margin:0!important;overflow:hidden!important;
+  align-items:center!important;justify-items:center!important;
+}
+.page.story-safe .collage.four img,
+.page.story-safe .collage.four img:nth-child(n){
+  display:block!important;width:auto!important;height:auto!important;max-width:92%!important;max-height:88%!important;
+  object-fit:contain!important;object-position:center!important;margin:0!important;padding:0!important;
+  box-sizing:border-box!important;transform:none!important;
+}
+.page.story-safe .collage.four img:nth-child(1){transform:rotate(-.55deg)!important}
+.page.story-safe .collage.four img:nth-child(2){transform:rotate(.5deg)!important}
+.page.story-safe .collage.four img:nth-child(3){transform:rotate(.4deg)!important}
+.page.story-safe .collage.four img:nth-child(4){transform:rotate(-.45deg)!important}
+/* The YouTube player stays on the blue background, outside the album, and never opens another page. */
+.youtube-music{
+  display:block!important;position:fixed!important;right:14px!important;bottom:14px!important;
+  width:200px!important;height:200px!important;z-index:230!important;opacity:0!important;
+  pointer-events:none!important;transform:translateY(12px)!important;transition:opacity .25s,transform .25s!important;
+  background:#111!important;border:2px solid #ddb12f!important;border-radius:8px!important;
+  overflow:hidden!important;box-shadow:0 8px 24px rgba(0,0,0,.3)!important;
+}
+.youtube-music.show{opacity:1!important;pointer-events:auto!important;transform:none!important}
+.youtube-music iframe{display:block!important;width:200px!important;height:200px!important;border:0!important}
+@media(max-width:1000px){.youtube-music{right:8px!important;bottom:8px!important}}
+
+/* Final release — Apple Music preview, positioned below the scrapbook */
+.apple-music-dock{position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:18;width:min(660px,86vw);height:0;opacity:0;overflow:hidden;transition:height .35s ease,opacity .35s ease;pointer-events:none}
+.apple-music-dock.active{height:76px;opacity:1;pointer-events:auto}
+.apple-music-dock iframe{width:100%;height:76px;border:0;border-radius:12px;overflow:hidden;background:transparent}
+@media(max-width:800px){.apple-music-dock{bottom:6px;width:92vw}.apple-music-dock.active{height:70px}.apple-music-dock iframe{height:70px}}
+
+/* Final local-audio controls — no visible media player */
+.apple-music-dock{display:none!important}
+.music-btn{border:1px solid rgba(245,207,85,.55);background:rgba(5,27,50,.75);color:#f5cf55;padding:8px 12px;font:700 11px Arial,sans-serif;letter-spacing:1px;cursor:pointer;min-width:132px}
+.music-btn:hover,.home-btn:hover{background:rgba(12,45,78,.9)}
+@media(max-width:800px){.music-btn{font-size:9px;min-width:108px;padding:7px 8px}}
